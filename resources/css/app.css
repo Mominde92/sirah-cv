@@ -1,0 +1,90 @@
+@import 'tailwindcss';
+
+/* Self-hosted fonts (bundled by Vite, no third-party font CDN). */
+@import '@fontsource-variable/inter';
+@import '@fontsource/ibm-plex-sans-arabic/400.css';
+@import '@fontsource/ibm-plex-sans-arabic/500.css';
+@import '@fontsource/ibm-plex-sans-arabic/600.css';
+@import '@fontsource/ibm-plex-sans-arabic/700.css';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter Variable', 'IBM Plex Sans Arabic', ui-sans-serif, system-ui, sans-serif;
+    --font-arabic: 'IBM Plex Sans Arabic', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+    /* Brand: a deep, slightly violet blue. */
+    --color-brand-50: #f0f4ff;
+    --color-brand-100: #e1e9ff;
+    --color-brand-200: #c4d3ff;
+    --color-brand-300: #9db3ff;
+    --color-brand-400: #6f89fb;
+    --color-brand-500: #4c63f2;
+    --color-brand-600: #3a48e3;
+    --color-brand-700: #2f39c4;
+    --color-brand-800: #29329e;
+    --color-brand-900: #262f7d;
+    --color-brand-950: #181c4a;
+
+    /* Ink: the neutral used for text and surfaces. */
+    --color-ink-50: #f7f8fa;
+    --color-ink-100: #eef0f4;
+    --color-ink-200: #dde1e8;
+    --color-ink-300: #c3c9d4;
+    --color-ink-400: #8f98a8;
+    --color-ink-500: #667085;
+    --color-ink-600: #4a5364;
+    --color-ink-700: #353d4c;
+    --color-ink-800: #1f2533;
+    --color-ink-900: #121722;
+    --color-ink-950: #0a0d14;
+
+    --shadow-soft: 0 1px 2px rgb(16 24 40 / 0.04), 0 4px 16px -4px rgb(16 24 40 / 0.08);
+    --shadow-lift: 0 2px 4px rgb(16 24 40 / 0.04), 0 16px 40px -12px rgb(16 24 40 / 0.18);
+}
+
+@layer base {
+    html {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+    }
+
+    /* Arabic glyphs first when the document is Arabic; Latin words keep Inter via fallback. */
+    :lang(ar) body {
+        font-family: var(--font-arabic);
+    }
+
+    ::selection {
+        background-color: var(--color-brand-200);
+        color: var(--color-ink-900);
+    }
+
+    [x-cloak] {
+        display: none !important;
+    }
+
+    /* Inside the mobile app: keep content clear of the notch and the home indicator. */
+    .native-app body {
+        padding-top: env(safe-area-inset-top);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+@layer components {
+    .focus-ring {
+        @apply focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-500;
+    }
+
+    .container-page {
+        @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+    }
+
+    /* Directional icons (arrows, chevrons) mirror in RTL. */
+    .flip-rtl {
+        @apply rtl:-scale-x-100;
+    }
+}
