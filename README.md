@@ -1,5 +1,12 @@
 # Sirah: CV Builder SaaS
 
+![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?logo=php&logoColor=white)
+![Laravel](https://img.shields.io/badge/Laravel-12-FF2D20?logo=laravel&logoColor=white)
+![Livewire](https://img.shields.io/badge/Livewire-4-FB70A9?logo=livewire&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8-4479A1?logo=mysql&logoColor=white)
+![Tests](https://img.shields.io/badge/tests-126_passing-success)
+
 Bilingual (English / Arabic, LTR / RTL) SaaS for building ATS-friendly resumes with a live editor, 8 templates,
 PDF and Word export, CV import, design matching, optional AI writing help, subscriptions and an admin panel.
 Architecture and design decisions: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
@@ -75,3 +82,9 @@ a layout, header style, defaults and allowed options. For a new visual element, 
 
 1. Add the locale to `config/cv.php` → `locales` (and to `rtl_locales` if it is right-to-left).
 2. Copy `lang/en` to `lang/<code>` and translate. Add `lang/<code>.json` for framework email strings.
+
+## Author
+
+Built by **Moamen Derine**, Senior Full Stack Developer & DevOps Engineer in Dubai.
+
+[moumen-dev.com](https://moumen-dev.com) · [LinkedIn](https://www.linkedin.com/in/momin-derine/) · Available for freelance projects
